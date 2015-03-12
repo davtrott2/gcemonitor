@@ -325,7 +325,7 @@
     regions:
      - providerRegionId: 'us-central1'
        machineImage:
-         providerId: 'debian-cloud_debian-7-wheezy-v20150226'
+         providerId: 'debian-cloud_debian-7-wheezy-v20150309'
        serverProducts:
         - productSize: 'n1-standard-16'
         - productSize: 'n1-highcpu-8'
@@ -344,7 +344,7 @@
         - productSize: 'g1-small'
      - providerRegionId: 'europe-west1'
        machineImage:
-         providerId: 'debian-cloud_debian-7-wheezy-v20150226'
+         providerId: 'debian-cloud_debian-7-wheezy-v20150309'
        serverProducts:
         - productSize: 'n1-standard-16'
         - productSize: 'n1-highcpu-8'
@@ -363,7 +363,7 @@
         - productSize: 'g1-small'
      - providerRegionId: 'asia-east1'
        machineImage:
-         providerId: 'debian-cloud_debian-7-wheezy-v20150226'
+         providerId: 'debian-cloud_debian-7-wheezy-v20150309'
        serverProducts:
         - productSize: 'n1-standard-16'
         - productSize: 'n1-highcpu-8'
