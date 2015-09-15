@@ -1,0 +1,91 @@
+node_types:
+  blueprint_firewall:
+    derived_from: dcm.nodes.FirewallGroup
+    properties:
+      name: fw
+      region: { get_input: [product_selector, region] }
+      cloud: { get_input: [product_selector, cloud] }
+      zone: { get_input: [product_selector, zone] }
+      cloudAccountId: { get_input: [product_selector, accountId] }
+
+topology_template:
+  inputs:
+    product_selector:
+      type: dcm.inputs.Product
+      properties:
+        platform: UNIX
+        architecture: I64
+        productMappings:
+          "Amazon":
+            "us-west-1":
+              image: "ami-614aa025"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "us-west-2":
+              image: "ami-338bb303"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "us-east-1":
+              image: "ami-a744b1cc"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "eu-west-1":
+              image: "ami-2bb2cc5c"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "ap-southeast-1":
+              image: "ami-10bf8542"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "ap-northeast-1":
+              image: "ami-3602db36"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "ap-southeast-2":
+              image: "ami-ff5d26c5"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+            "sa-east-1":
+              image: "ami-a5d85bb8"
+              products: ['t1.micro', 'm3.medium', 'm3.large', 'm3.xlarge', 'm3.2xlarge', 'm1.small', 'm1.medium', 'm1.large', 'm1.xlarge', 'c3.large', 'c3.xlarge', 'c3.2xlarge', 'c3.4xlarge', 'c3.8xlarge', 'c1.medium', 'c1.xlarge', 'm2.xlarge', 'm2.2xlarge', 'm2.4xlarge']
+          "Joyent":
+            "us-west-1":
+              image: "5f67e820-1489-4db7-9df2-1d8e3ec5cd90"
+              products: ['g3-highio-15-kvm', 'g3-highio-30-kvm', 'g3-highcpu-4-kvm', 'g3-highcpu-8-kvm', 'g3-highcpu-7-kvm', 'g3-highcpu-1.75-kvm', 'g3-standard-1-kvm', 'g3-standard-2-kvm', 'g3-standard-8-kvm', 'g3-standard-4-kvm', 'g3-standard-7.5-kvm', 'g3-standard-30-kvm', 'g3-standard-3.75-kvm', 'g3-standard-15-kvm', 'g3-standard-1.75-kvm', 'g3-highstorage-32-kvm', 'g3-highmemory-68.375-kvm', 'g3-highmemory-34.25-kvm', 'g3-highmemory-17.125-kvm', 'g3-highio-60.5-kvm']
+            "us-east-1":
+              image: "5f67e820-1489-4db7-9df2-1d8e3ec5cd90"
+              products: ['g3-highio-15-kvm', 'g3-highio-30-kvm', 'g3-highcpu-4-kvm', 'g3-highcpu-8-kvm', 'g3-highcpu-7-kvm', 'g3-highcpu-1.75-kvm', 'g3-standard-1-kvm', 'g3-standard-2-kvm', 'g3-standard-8-kvm', 'g3-standard-4-kvm', 'g3-standard-7.5-kvm', 'g3-standard-30-kvm', 'g3-standard-3.75-kvm', 'g3-standard-15-kvm', 'g3-standard-1.75-kvm', 'g3-highstorage-32-kvm', 'g3-highmemory-68.375-kvm', 'g3-highmemory-34.25-kvm', 'g3-highmemory-17.125-kvm', 'g3-highio-60.5-kvm']
+            "us-sw-1":
+              image: "5f67e820-1489-4db7-9df2-1d8e3ec5cd90"
+              products: ['g3-highio-15-kvm', 'g3-highio-30-kvm', 'g3-highcpu-4-kvm', 'g3-highcpu-8-kvm', 'g3-highcpu-7-kvm', 'g3-highcpu-1.75-kvm', 'g3-standard-1-kvm', 'g3-standard-2-kvm', 'g3-standard-8-kvm', 'g3-standard-4-kvm', 'g3-standard-7.5-kvm', 'g3-standard-30-kvm', 'g3-standard-3.75-kvm', 'g3-standard-15-kvm', 'g3-standard-1.75-kvm', 'g3-highstorage-32-kvm', 'g3-highmemory-68.375-kvm', 'g3-highmemory-34.25-kvm', 'g3-highmemory-17.125-kvm', 'g3-highio-60.5-kvm']
+            "us-sw-1":
+              image: "5f67e820-1489-4db7-9df2-1d8e3ec5cd90"
+              products: ['g3-highio-15-kvm', 'g3-highio-30-kvm', 'g3-highcpu-4-kvm', 'g3-highcpu-8-kvm', 'g3-highcpu-7-kvm', 'g3-highcpu-1.75-kvm', 'g3-standard-1-kvm', 'g3-standard-2-kvm', 'g3-standard-8-kvm', 'g3-standard-4-kvm', 'g3-standard-7.5-kvm', 'g3-standard-30-kvm', 'g3-standard-3.75-kvm', 'g3-standard-15-kvm', 'g3-standard-1.75-kvm', 'g3-highstorage-32-kvm', 'g3-highmemory-68.375-kvm', 'g3-highmemory-34.25-kvm', 'g3-highmemory-17.125-kvm', 'g3-highio-60.5-kvm']
+          "Google":
+            "us-central1":
+              image: "debian-cloud_debian-7-wheezy-v20150603"
+              products: ['n1-standard-16', 'n1-highcpu-8', 'n1-standard-8', 'n1-highcpu-4', 'n1-highmem-16', 'n1-standard-4', 'f1-micro', 'n1-standard-2', 'n1-standard-1', 'n1-highmem-2', 'n1-highmem-4', 'n1-highcpu-16', 'n1-highcpu-2', 'n1-highmem-8', 'g1-small']
+            "europe-west1":
+              image: "debian-cloud_debian-7-wheezy-v20150603"
+              products: ['n1-standard-16', 'n1-highcpu-8', 'n1-standard-8', 'n1-highcpu-4', 'n1-highmem-16', 'n1-standard-4', 'f1-micro', 'n1-standard-2', 'n1-standard-1', 'n1-highmem-2', 'n1-highmem-4', 'n1-highcpu-16', 'n1-highcpu-2', 'n1-highmem-8', 'g1-small']
+            "asia-east1":
+              image: "debian-cloud_debian-7-wheezy-v20150603"
+              products: ['n1-standard-16', 'n1-highcpu-8', 'n1-standard-8', 'n1-highcpu-4', 'n1-highmem-16', 'n1-standard-4', 'f1-micro', 'n1-standard-2', 'n1-standard-1', 'n1-highmem-2', 'n1-highmem-4', 'n1-highcpu-16', 'n1-highcpu-2', 'n1-highmem-8', 'g1-small']
+
+  node_templates:
+      vm:
+        type: dcm.nodes.Server
+        properties:
+          name: vm
+          product: { get_input: [product_selector, product] }
+          image: { get_input: [product_selector, image] }
+          region: { get_input: [product_selector, region] }
+          cloud: { get_input: [product_selector, cloud] }
+          zone: { get_input: [product_selector, zone] }
+          platform: { get_input: [product_selector, platform] }
+          architecture: { get_input: [product_selector, architecture] }
+          serverProductId: { get_input: [product_selector, serverProductId] }
+          cloudAccountId: { get_input: [product_selector, accountId] }
+          startupScript: |
+                          #!/bin/bash
+                          export AGENT_VERSION=0.11.2
+                          export AGENT_BASE_URL=https://dcmagentunstable.s3.amazonaws.com
+                          curl -sSLO --retry 5 $AGENT_BASE_URL/agent_docker-$AGENT_VERSION.sh
+                          export DCM_URL=${dcm.callback.url}
+                          /bin/bash agent_docker-$AGENT_VERSION.sh -Z
+        requirements:
+          - firewall: vm_firewall_rules
+            relationship_type: tosca.relationships.DependsOn
